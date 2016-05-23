@@ -18,3 +18,6 @@ wrap it in a for loop to print three times
 - increment the number of times the image was clicked in the object
 - increment the number of times the image was displayed in the object
 - name, path, tally, num times displayed 
+- event.target.id will be the mechanism to collect the tally's
+- to turn off a certain action container.removeEventListener();
+- to turn on certain actions container.addEventListener();
