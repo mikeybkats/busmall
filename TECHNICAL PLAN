@@ -1,7 +1,10 @@
 # Instructions
 #### Order of operations
 1 - user accesses site
-2 - site generates
+2 - site generates objects, content listeners, button on load
+3 - object listener oop - create var - add event listener - function to do something;
+4 - keep functions very simple.
+
 
 - 3 random photos in
 - an array of objects
@@ -24,3 +27,4 @@
 - event.target.id will be the mechanism to collect the tally's
 - to turn off a certain action container.removeEventListener();
 - to turn on certain actions container.addEventListener();
+- operation

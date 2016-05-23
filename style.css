@@ -1,0 +1,21 @@
+.square1 {
+  background-color: cyan;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+}
+
+.square2 {
+  background-color: blue;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+}
+
+
+.square3 {
+  background-color: cornflowerblue;
+  width: 150px;
+  height: 150px;
+  display: inline-block;
+}
