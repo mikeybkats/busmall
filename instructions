@@ -1,0 +1,17 @@
+### Instructions
+3 random photos in 
+an array of objects
+start by displaying one random photo
+Math.random()   min   max
+min = 0
+array.length minus one
+min = inclusive
+max = exclusive
+wrap it in a for loop to print three times
+
+- generate random number
+- if the result of the random is a duplicate then re-roll the random (if/else)(conditional logic)
+- use random number to access array of objects
+- a particular number chooses a particular object
+- decide path value to src attribute
+- then load the image
