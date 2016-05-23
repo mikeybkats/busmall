@@ -15,3 +15,5 @@ wrap it in a for loop to print three times
 - a particular number chooses a particular object
 - decide path value to src attribute
 - then load the image
+- increment the number of times the image was clicked in the object
+- increment the number of times the image was displayed in the object
