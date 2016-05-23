@@ -6,21 +6,38 @@ var TestImage = function(name, path, number){
   this.identifier = number;
   this.clickTally = 0;
   this.displayTally = 0;
-  this.pushToArray = function (){
-    var imageToArray = this;
-    testImageArray.push(imageToArray);
-  };
+  testImageArray.push(this);
 };
 
-var bag = new TestImage ('bag', 'images/bag.jpg', 1);
-var banana = new TestImage ('banana', 'images/banana.jpg', 2);
-var bathroom = new TestImage ('bathroom', 'images/bathroom.jpg', 3);
+var bag = new TestImage ('bag', 'images/bag.jpg', 0);
+var banana = new TestImage ('banana', 'images/banana.jpg', 1);
+var bathroom = new TestImage ('bathroom', 'images/bathroom.jpg', 2);
+var boots = new TestImage ('boots', 'images/boots.jpg', 3);
+var breakfast = new TestImage ('breakfast', 'images/breakfast.jpg', 4);
+var bubblegum = new TestImage ('bubblegum', 'images/bubblegum.jpg', 5);
+var chair = new TestImage ('chair', 'images/chair.jpg', 6);
+var cthulhu = new TestImage ('chair', 'images/cthulhu.jpg', 7);
+var dogduck = new TestImage ('dog-duck', 'images/dog-duck.jpg', 8);
+var dragon = new TestImage ('dragon', 'images/dragon.jpg', 8);
+var pen = new TestImage ('pen', 'images/pen.jpg', 8);
 
-var randomizer = function (){
-  var number = Math.floor(Math.random() * 20);
+var randomImage = function (){
+  var number = Math.floor(Math.random() * testImageArray.length);
   console.log('The random number is ' + number);
-  return number;
+  var selection = testImageArray[number].src;
+  console.log(selection);
+  return selection;
 };
+
+var buttonAction = document.getElementById('take-test');
+buttonAction.addEventListener('click', loadImage);
+function loadImage(event){
+  randomImage();
+  // use random image selection index to display that image
+  var displayRandomImage = document.createElement('displayRandomImage');
+  displayRandomImage.selection;
+  document.getElementById('image-left').appendChild(displayRandomImage);
+}
 
 var clickDivLeft = document.getElementById('image-left');
 
@@ -31,6 +48,3 @@ clickDivLeft.addEventListener('click', tallyImage);
 function tallyImage (event){
   console.log(event.target.id);
 };
-
-var buttonAction = document.getElementById('take-test');
-buttonAction.addEventListener('click', )
