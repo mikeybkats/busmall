@@ -23,27 +23,36 @@ var pen = new TestImage ('pen', 'images/pen.jpg', 8);
 
 var randomImage = function (){
   var number = Math.floor(Math.random() * testImageArray.length);
-  console.log('The random number is ' + number);
-  var selection = testImageArray[number].src;
-  console.log(selection);
-  return selection;
+  // var selection = testImageArray[number].src;
+  return number;
 };
 
 var buttonAction = document.getElementById('take-test');
 buttonAction.addEventListener('click', loadImage);
 
 function loadImage(event){
-  var imageSelection = randomImage(); // selects number
-  console.log(imageSelection);
+  var imageSelectionNumber = randomImage();
+  var selectedImage = testImageArray[imageSelectionNumber].src;
+  console.log(selectedImage);
   var leftImageDiv = document.getElementById('imageleft'); // get element
-  leftImageDiv.src = imageSelection;
+  leftImageDiv.src = selectedImage;
+  // on click push 1 to tally to correct object
 }
 
 var clickDivLeft = document.getElementById('imageleft');
-// add event listener var.addEventListener('click', function);
 clickDivLeft.addEventListener('click', tallyImage);
 
 // function name (event){
 function tallyImage (event){
-  console.log(event.target.id);
+  var imageSelectionNumber = randomImage();
+  console.log('The random number is ' + imageSelectionNumber);
+  var selectedImage = testImageArray[imageSelectionNumber].src;
+  console.log(selectedImage);
+  var leftImageDiv = document.getElementById('imageleft'); // get element
+  leftImageDiv.src = selectedImage;
+  // on click push 1 to tally to correct object
+  var clickProperty = testImageArray[imageSelectionNumber].clickTally;
+  var tallyOfSelection = 1 + clickProperty; // selects the attribute
+  //clickProperty.push(tallyOfSelection);
+  console.log(clickProperty);
 };
