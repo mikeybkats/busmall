@@ -3,6 +3,7 @@ var picContainer = document.getElementById('pic-container');
 var left = document.getElementById('left');
 var center = document.getElementById('center');
 var right = document.getElementById('right');
+var getResults = document.getElementById('chart-results');
 var allProducts = [];
 var allPics = [];
 var picNames = ['bag', 'banana', 'bathroom', 'boots', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
@@ -65,6 +66,43 @@ function handlePicContainerClick (event){
   console.log(event.target);
 }
 
-picContainer.addEventListener('click', handlePicContainerClick);
+var ctx = document.getElementById('myChart');
+
+function renderChart(event){
+  var data = {
+    labels: [],
+    datasets: [
+      {
+        label: '# of Votes',
+        data: []
+      }
+    ]
+  };
+
+  for (var i = 0; i < picNames.length; i++){
+    data.labels.push(picNames[i]);
+    console.log(picNames[i]);
+    data.datasets[0].data.push(allProducts[i].clicks);
+    console.log(allProducts[i].clicks);
+  }
+
+  var myChart = new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero:true
+          }
+        }]
+      }
+    }
+  });
+
+  myChart.update();
+}
 
 displayPics();
+picContainer.addEventListener('click', handlePicContainerClick);
+getResults.addEventListener('click', renderChart);
