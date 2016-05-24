@@ -18,8 +18,8 @@ var bubblegum = new TestImage ('bubblegum', 'images/bubblegum.jpg', 5);
 var chair = new TestImage ('chair', 'images/chair.jpg', 6);
 var cthulhu = new TestImage ('chair', 'images/cthulhu.jpg', 7);
 var dogduck = new TestImage ('dog-duck', 'images/dog-duck.jpg', 8);
-var dragon = new TestImage ('dragon', 'images/dragon.jpg', 8);
-var pen = new TestImage ('pen', 'images/pen.jpg', 8);
+var dragon = new TestImage ('dragon', 'images/dragon.jpg', 9);
+var pen = new TestImage ('pen', 'images/pen.jpg', 10);
 
 var randomImage = function (){
   var number = Math.floor(Math.random() * testImageArray.length);
