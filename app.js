@@ -31,16 +31,15 @@ var randomImage = function (){
 
 var buttonAction = document.getElementById('take-test');
 buttonAction.addEventListener('click', loadImage);
+
 function loadImage(event){
-  randomImage();
-  // use random image selection index to display that image
-  var displayRandomImage = document.createElement('displayRandomImage');
-  displayRandomImage.selection;
-  document.getElementById('image-left').appendChild(displayRandomImage);
+  var imageSelection = randomImage(); // selects number
+  console.log(imageSelection);
+  var leftImageDiv = document.getElementById('imageleft'); // get element
+  leftImageDiv.src = imageSelection;
 }
 
-var clickDivLeft = document.getElementById('image-left');
-
+var clickDivLeft = document.getElementById('imageleft');
 // add event listener var.addEventListener('click', function);
 clickDivLeft.addEventListener('click', tallyImage);
 
