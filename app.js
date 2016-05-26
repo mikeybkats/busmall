@@ -12,9 +12,9 @@ var allProducts = [];
 var allPics = [];
 var allClicks = 0;
 var maxClicks = 25;
+var parsedProductItems = [];
 var picNames = ['bag', 'banana', 'bathroom', 'boots', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 var parsedProductItems = JSON.parse(localStorage.getItem('productData'));
-console.log(parsedProductItems);
 
 function productAllClicks (){
   var productAllClicks = [];
@@ -41,12 +41,10 @@ function percentageOfClicks(clicks, views){
 
 var clickPercentageData = function(){
   var array1 = productAllViews();
-  // console.log(array1);
   var array2 = productAllClicks();
-  // console.log(array2);
   var arrayResult = [];
   for (var i = 0; i < allProducts.length; i++){
-    var finalPercentage = percentageOfClicks(array2[i], array1[i]);
+    var finalPercentage = Math.round((percentageOfClicks(array2[i], array1[i]) * 100) / 100);
     arrayResult.push(finalPercentage);
   }
   console.log(arrayResult);
@@ -251,6 +249,7 @@ function resetCharts(event){
 }
 
 function renderCharts(event){
+  parsedProductItems = JSON.parse(localStorage.getItem('productData'));
   renderChartViews();
   renderChartClicks();
   renderChartPercentage();
