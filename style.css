@@ -1,9 +1,31 @@
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 65px;
+  font-weight: 900;
+  margin: 0;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 900;
+  color: #666666;
+  margin: 0;
+}
 
 img {
-  max-width: 40%;
-  margin: 20px;
-  max-height: 250px;
+  max-height: 100%;
+}
+
+.imageCrop {
   clip: rect(200px 200px 200px 200px);
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
 }
 
 .myChartDiv {
@@ -19,7 +41,8 @@ button {
   height: 60px;
   color: white;
   border: none;
-  font-family: sans-serif;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   margin: 5px;
 }
@@ -32,4 +55,16 @@ section {
 .container {
   display: flex;
   justify-content: center;
+}
+
+.bodycopy {
+  display: flex;
+  margin: 0px auto;
+  max-width: 1000px;
+  margin-top: 10px;
+}
+
+.heading {
+  display: block;
+  text-align: center;
 }
