@@ -48,8 +48,8 @@ var clickPercentageData = function(){
     var finalPercentage = percentageOfClicks(array2[i], array1[i]);
     arrayResult.push(finalPercentage);
   }
-  return arrayResult;
   console.log(arrayResult);
+  return arrayResult;
 };
 
 function Product(name) {
@@ -215,7 +215,7 @@ function renderChartPercentage(){
   if (allClicks < maxClicks){
     alert('you have to choose another 25 products for busmall before you can see your results');
   }
-
+  clickPercentageData();
   if (allClicks >= maxClicks){
     for (var i = 0; i < picNames.length; i++){
       data.labels.push(picNames[i]);
@@ -304,7 +304,6 @@ function resetCharts(event){
 function renderCharts(event){
   renderChartViews();
   renderChartClicks();
-  clickPercentageData();
   renderChartPercentage();
 }
 
