@@ -44,7 +44,7 @@ var clickPercentageData = function(){
   var array2 = productAllClicks();
   var arrayResult = [];
   for (var i = 0; i < allProducts.length; i++){
-    var finalPercentage = Math.round((percentageOfClicks(array2[i], array1[i]) * 100) / 100);
+    var finalPercentage = Math.round((percentageOfClicks(array2[i], array1[i])) * 100);
     arrayResult.push(finalPercentage);
   }
   console.log(arrayResult);
