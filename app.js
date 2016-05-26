@@ -215,12 +215,12 @@ function renderChartPercentage(){
   if (allClicks < maxClicks){
     alert('you have to choose another 25 products for busmall before you can see your results');
   }
-  clickPercentageData();
+  var chartData = clickPercentageData();
   if (allClicks >= maxClicks){
     for (var i = 0; i < picNames.length; i++){
       data.labels.push(picNames[i]);
       console.log(picNames[i]);
-      data.datasets[0].data.push(clickPercentageData[i]);
+      data.datasets[0].data.push(chartData[i]);
       console.log(clickPercentageData[i]);
     }
   }
