@@ -1,13 +1,16 @@
 
 img {
-  max-width: 25%;
+  max-width: 40%;
   margin: 20px;
-  max-height: 200px;
+  max-height: 250px;
+  clip: rect(200px 200px 200px 200px);
 }
 
 .myChartDiv {
-  width: 400px;
-  height: 400px;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  margin-bottom: 300px;
 }
 
 button {
@@ -18,4 +21,15 @@ button {
   border: none;
   font-family: sans-serif;
   font-size: 18px;
+  margin: 5px;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
 }
