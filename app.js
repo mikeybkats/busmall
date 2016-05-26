@@ -7,6 +7,7 @@ var resetButton = document.getElementById('reset-results');
 var playAgainButton = document.getElementById('play-again');
 var chartViews = document.getElementById('myChartViews');
 var chartClicks = document.getElementById('myChartClicks');
+var chartPercentage = document.getElementById('myChartPercentage');
 var allProducts = [];
 var allPics = [];
 var allClicks = 0;
@@ -175,7 +176,6 @@ function renderChartViews(){
   if (allClicks < maxClicks){
     alert('you have to choose another 25 products for busmall before you can see your results');
   }
-
   if (allClicks >= maxClicks){
     for (var i = 0; i < picNames.length; i++){
       data.labels.push(picNames[i]);
@@ -198,7 +198,7 @@ function renderChartViews(){
       }
     }
   });
-  myChartViews.update();
+  // myChartViews.update();
 }
 
 function renderChartPercentage(){
@@ -219,17 +219,9 @@ function renderChartPercentage(){
   if (allClicks >= maxClicks){
     for (var i = 0; i < picNames.length; i++){
       data.labels.push(picNames[i]);
-      console.log(picNames[i]);
       data.datasets[0].data.push(chartData[i]);
-      console.log(clickPercentageData[i]);
     }
   }
-
-  // data.labels.push(picNames[i]);
-  // console.log(picNames[i]);
-  // data.datasets[0].data.push(parsedProductItems[i].views);
-  // console.log(parsedProductItems[i].views);
-
   var myChartPercentage = new Chart(chartPercentage, {
     type: 'bar',
     data: data,
@@ -248,57 +240,14 @@ function renderChartPercentage(){
 function resetCharts(event){
   var chartViews = document.getElementById('myChartViews');
   var chartClicks = document.getElementById('myChartClicks');
+  var chartPercentage = document.getElementById('myChartPercentage');
+  // chartClicks.parentNode.removeChild(chartClicks);
+  // chartViews.parentNode.removeChild(chartViews);
+  // chartPercentage.parentNode.removeChild(chartPercentage);
+  // return false;
+  displayButton.style.display = 'none';
+  resetButton.style.display = 'none';
   allClicks = 0;
-  var data = {
-    labels: [],
-    datasets: [
-      {
-        label: 'the most clicked products',
-        data: []
-      }
-    ]
-  };
-  var myChartClicks = new Chart(chartClicks, {
-    type: 'bar',
-    data: data,
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
-    }
-  });
-  var data = {
-    labels: [],
-    datasets: [
-      {
-        label: 'the most clicked products',
-        data: []
-      }
-    ]
-  };
-  var myChartViews = new Chart(chartViews, {
-    type: 'bar',
-    data: data,
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
-    }
-  });
-  myChartClicks.clear();
-  myChartViews.clear();
-  chartClicks.parentNode.removeChild(chartClicks);
-  chartViews.parentNode.removeChild(chartViews);
-  chartPercentage.parentNode.removeChild(chartPercentage);
-  return false;
 }
 
 function renderCharts(event){
@@ -310,7 +259,7 @@ function renderCharts(event){
 displayPics();
 
 function playAgain (){
-  displayPicsAgain();
+  displayPics();
 }
 
 resetButton.style.display = 'none';
