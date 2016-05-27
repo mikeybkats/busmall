@@ -16,6 +16,8 @@ var parsedProductItems = [];
 var picNames = ['bag', 'banana', 'bathroom', 'boots', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 var parsedProductItems = JSON.parse(localStorage.getItem('productData'));
 
+
+
 function productAllClicks (){
   var productAllClicks = [];
   for (var i = 0; i < allProducts.length; i++){
@@ -72,7 +74,7 @@ function displayPics (){
     left.src = allProducts[leftIndex].path;
     allProducts[leftIndex].views += 1; // this adds to the object through the array
     left.alt = allProducts[leftIndex].name;
-    console.log(allProducts[leftIndex].name + ' has been shown ' + allProducts[leftIndex].views + ' times');
+    // console.log(allProducts[leftIndex].name + ' has been shown ' + allProducts[leftIndex].views + ' times');
 
     var centerIndex = randNum( 0 , allProducts.length);
     while (centerIndex === leftIndex) {
@@ -90,7 +92,7 @@ function displayPics (){
     right.src = allProducts[rightIndex].path;
     allProducts[rightIndex].views += 1;
     right.alt = allProducts[rightIndex].name;
-    console.log(allProducts[centerIndex].name + ' has been shown ' + allProducts[leftIndex].views + ' times');
+    // console.log(allProducts[centerIndex].name + ' has been shown ' + allProducts[leftIndex].views + ' times');
   }
 }
 
