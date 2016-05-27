@@ -7,18 +7,35 @@ h1 {
   font-size: 65px;
   font-weight: 900;
   margin: 0;
+  color: white;
+  background-color: black;
+  display: inline;
 }
 
 h2 {
   font-family: 'Roboto', sans-serif;
   font-size: 30px;
-  font-weight: 900;
-  color: #666666;
+  font-weight: 400;
+  color: #E7E7E7;
+  background-color: teal;
   margin: 0;
+  padding: 10px;
 }
 
 img {
   max-height: 100%;
+}
+
+.wordmark {
+  background-color: black;
+  padding: 20px;
+}
+
+.buslogo {
+  max-height: 90px;
+  display: inline;
+  background-color: black;
+  margin: -22px -4px -22px 0px;
 }
 
 .imageCrop {
@@ -26,6 +43,14 @@ img {
   overflow: hidden;
   width: 250px;
   height: 250px;
+  margin: 15px;
+  border: 1px solid orange;
+  background-color: white;
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .myChartDiv {
@@ -36,7 +61,7 @@ img {
 }
 
 button {
-  background-color: red;
+  background-color: #DE5126;
   width: 180px;
   height: 60px;
   color: white;
@@ -45,6 +70,7 @@ button {
   font-family: 'Roboto', sans-serif;
   font-size: 18px;
   margin: 5px;
+  cursor: pointer;
 }
 
 section {
@@ -57,14 +83,26 @@ section {
   justify-content: center;
 }
 
+.pic-container {
+  background-color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .bodycopy {
   display: flex;
-  margin: 0px auto;
+  margin: 20px auto;
   max-width: 1000px;
-  margin-top: 10px;
+  margin-top: 20px;
+  padding: 10px;
 }
 
 .heading {
   display: block;
   text-align: center;
+}
+
+.buttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -107,9 +107,6 @@ function handlePicContainerClick (event){
       allClicks += 1;
       console.log(allClicks);
 
-      // localStorage.clear();
-      // var allClicksStringified = JSON.stringify(allClicks);
-      // localStorage.setItem('numberOfClicks', allClicksStringified);
     }
   }
   if (allClicks >= maxClicks){
@@ -128,7 +125,8 @@ function renderChartClicks(){
     datasets: [
       {
         label: 'the most clicked products',
-        data: []
+        data: [],
+        backgroundColor: '#DE5126'
       }
     ]
   };
@@ -167,7 +165,8 @@ function renderChartViews(){
     datasets: [
       {
         label: 'the most viewed products',
-        data: []
+        data: [],
+        backgroundColor: '#DE5126'
       }
     ]
   };
@@ -206,7 +205,8 @@ function renderChartPercentage(){
     datasets: [
       {
         label: 'percentage of clicks per product',
-        data: []
+        data: [],
+        backgroundColor: '#DE5126'
       }
     ]
   };
