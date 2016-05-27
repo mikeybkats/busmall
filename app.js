@@ -16,8 +16,6 @@ var parsedProductItems = [];
 var picNames = ['bag', 'banana', 'bathroom', 'boots', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 var parsedProductItems = JSON.parse(localStorage.getItem('productData'));
 
-
-
 function productAllClicks (){
   var productAllClicks = [];
   for (var i = 0; i < allProducts.length; i++){
@@ -97,20 +95,18 @@ function displayPics (){
 }
 
 function handlePicContainerClick (event){
-  displayPics();
   if (event.target.id === 'pic-container' && allClicks < maxClicks ){
     return alert('click on a picture');
   }
   for (var i = 0; i < allProducts.length; i++){
     if(event.target.alt === allProducts[i].name && allClicks < maxClicks){
       allProducts[i].clicks += 1;
-
       console.log(allProducts[i].name + ' has ' + allProducts[i].clicks + ' clicks');
       allClicks += 1;
       console.log(allClicks);
-
     }
   }
+
   if (allClicks >= maxClicks){
     displayButton.style.display = 'inline-block';
     resetButton.style.display = 'inline-block';
@@ -118,6 +114,8 @@ function handlePicContainerClick (event){
 
   var allProductsStringged = JSON.stringify(allProducts);
   localStorage.setItem('productData', allProductsStringged);
+
+  displayPics();
 }
 
 function renderChartClicks(){
@@ -257,11 +255,11 @@ function renderCharts(event){
   renderChartPercentage();
 }
 
-displayPics();
-
 function playAgain (){
   displayPics();
 }
+
+displayPics();
 
 resetButton.style.display = 'none';
 displayButton.style.display = 'none';
