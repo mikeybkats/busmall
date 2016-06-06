@@ -1,3 +1,7 @@
+body {
+  margin: 0px;
+}
+
 p {
   font-family: 'Roboto', sans-serif;
 }
@@ -91,6 +95,9 @@ section {
 
 .bodycopy {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   margin: 20px auto;
   max-width: 1000px;
   margin-top: 20px;
@@ -105,4 +112,32 @@ section {
 .buttons {
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+table {
+  margin: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid gray;
+}
+
+tr:nth-child(1) {
+  background-color: gray;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+th {
+  padding: 8px 15px;
+  width: 140px;
+
+}
+
+th:nth-child(1) {
+  min-width: 330px;
+
 }

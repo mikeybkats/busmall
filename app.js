@@ -5,6 +5,7 @@ var right = document.getElementById('right');
 var displayButton = document.getElementById('chart-results');
 var resetButton = document.getElementById('reset-results');
 var playAgainButton = document.getElementById('play-again');
+var backEndResults = document.getElementById('backend-results');
 var chartViews = document.getElementById('myChartViews');
 var chartClicks = document.getElementById('myChartClicks');
 var chartPercentage = document.getElementById('myChartPercentage');
@@ -16,20 +17,42 @@ var parsedProductItems = [];
 var picNames = ['bag', 'banana', 'bathroom', 'boots', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 var parsedProductItems = JSON.parse(localStorage.getItem('productData'));
 
+if (JSON.parse(localStorage.getItem('productData')) === null) {
+  var parsedProductItems = [];
+}
+
+function Product(name) {
+  this.name = name;
+  this.views = 0;
+  this.clicks = 0;
+  this.percentage = 0;
+  this.path = 'images/' + name + '.jpg';
+  this.recommended = 'NO';
+}
+
 function productAllClicks (){
+  parsedProductItems = JSON.parse(localStorage.getItem('productData'));
   var productAllClicks = [];
   for (var i = 0; i < allProducts.length; i++){
-    productAllClicks.push(parsedProductItems[i].clicks);
-    console.log(productAllClicks);
+    if (JSON.parse(localStorage.getItem('productData')) != null){
+      productAllClicks.push(parsedProductItems[i].clicks);
+    }
+    else {
+      productAllClicks.push(allProducts[i].clicks);
+    }
   }
   return productAllClicks;
 };
 
 function productAllViews (){
+  parsedProductItems = JSON.parse(localStorage.getItem('productData'));
   var productAllViews = [];
   for (var i = 0; i < allProducts.length; i++){
-    productAllViews.push(parsedProductItems[i].views);
-    //console.log(productAllViews);
+    if (JSON.parse(localStorage.getItem('productData')) != null){
+      productAllViews.push(parsedProductItems[i].views);
+    }
+    else { productAllViews.push(allProducts[i].views);
+    }
   }
   return productAllViews;
 };
@@ -45,18 +68,14 @@ var clickPercentageData = function(){
   var arrayResult = [];
   for (var i = 0; i < allProducts.length; i++){
     var finalPercentage = Math.round((percentageOfClicks(array2[i], array1[i])) * 100);
+    if (isNaN(finalPercentage) === true){
+      finalPercentage = 0;
+    }
     arrayResult.push(finalPercentage);
+    allProducts[i].percentage = finalPercentage;
   }
-  console.log(arrayResult);
   return arrayResult;
 };
-
-function Product(name) {
-  this.name = name;
-  this.views = 0;
-  this.clicks = 0;
-  this.path = 'images/' + name + '.jpg';
-}
 
 for (var i = 0; i < picNames.length; i++){
   allProducts.push(new Product(picNames[i]));
@@ -72,7 +91,7 @@ function displayPics (){
     left.src = allProducts[leftIndex].path;
     allProducts[leftIndex].views += 1; // this adds to the object through the array
     left.alt = allProducts[leftIndex].name;
-    // console.log(allProducts[leftIndex].name + ' has been shown ' + allProducts[leftIndex].views + ' times');
+    console.log(allProducts[leftIndex].name + ' has been shown ' + allProducts[leftIndex].views + ' times');
 
     var centerIndex = randNum( 0 , allProducts.length);
     while (centerIndex === leftIndex) {
@@ -81,7 +100,7 @@ function displayPics (){
     center.src = allProducts[centerIndex].path;
     allProducts[centerIndex].views += 1;
     center.alt = allProducts[centerIndex].name;
-    console.log(allProducts[centerIndex].name + ' has been shown ' + allProducts[leftIndex].views + ' times');
+    console.log(allProducts[centerIndex].name + ' has been shown ' + allProducts[centerIndex].views + ' times');
 
     var rightIndex = randNum( 0 , allProducts.length);
     while (rightIndex === centerIndex || rightIndex === leftIndex) {
@@ -90,7 +109,7 @@ function displayPics (){
     right.src = allProducts[rightIndex].path;
     allProducts[rightIndex].views += 1;
     right.alt = allProducts[rightIndex].name;
-    // console.log(allProducts[centerIndex].name + ' has been shown ' + allProducts[leftIndex].views + ' times');
+    console.log(allProducts[rightIndex].name + ' has been shown ' + allProducts[rightIndex].views + ' times');
   }
 }
 
@@ -103,19 +122,28 @@ function handlePicContainerClick (event){
       allProducts[i].clicks += 1;
       console.log(allProducts[i].name + ' has ' + allProducts[i].clicks + ' clicks');
       allClicks += 1;
-      console.log(allClicks);
     }
   }
 
   if (allClicks >= maxClicks){
     displayButton.style.display = 'inline-block';
     resetButton.style.display = 'inline-block';
+    backEndResults.style.display = 'inline-block';
   }
+
+  clickPercentageData();
 
   var allProductsStringged = JSON.stringify(allProducts);
   localStorage.setItem('productData', allProductsStringged);
 
   displayPics();
+}
+
+function viewProductsOnBackEnd(event){
+  var allProductsStringged = JSON.stringify(allProducts);
+  localStorage.setItem('productData', allProductsStringged);
+
+  window.open('index-back.html');
 }
 
 function renderChartClicks(){
@@ -137,7 +165,6 @@ function renderChartClicks(){
   if (allClicks >= maxClicks){
     for (var i = 0; i < picNames.length; i++){
       data.labels.push(picNames[i]);
-      console.log(picNames[i]);
       data.datasets[0].data.push(allProducts[i].clicks);
       console.log(allProducts[i].clicks);
     }
@@ -176,7 +203,6 @@ function renderChartViews(){
   if (allClicks >= maxClicks){
     for (var i = 0; i < picNames.length; i++){
       data.labels.push(picNames[i]);
-      console.log(picNames[i]);
       data.datasets[0].data.push(parsedProductItems[i].views);
       console.log(parsedProductItems[i].views);
     }
@@ -195,7 +221,6 @@ function renderChartViews(){
       }
     }
   });
-  // myChartViews.update();
 }
 
 function renderChartPercentage(){
@@ -239,12 +264,9 @@ function resetCharts(event){
   var chartViews = document.getElementById('myChartViews');
   var chartClicks = document.getElementById('myChartClicks');
   var chartPercentage = document.getElementById('myChartPercentage');
-  // chartClicks.parentNode.removeChild(chartClicks);
-  // chartViews.parentNode.removeChild(chartViews);
-  // chartPercentage.parentNode.removeChild(chartPercentage);
-  // return false;
   displayButton.style.display = 'none';
   resetButton.style.display = 'none';
+  backEndResults.style.display = 'none';
   allClicks = 0;
 }
 
@@ -263,6 +285,8 @@ displayPics();
 
 resetButton.style.display = 'none';
 displayButton.style.display = 'none';
+backEndResults.style.display = 'none';
+backEndResults.addEventListener('click', viewProductsOnBackEnd);
 picContainer.addEventListener('click', handlePicContainerClick);
 displayButton.addEventListener('click', renderCharts);
 resetButton.addEventListener('click', resetCharts);
