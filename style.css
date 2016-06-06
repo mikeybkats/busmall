@@ -1,21 +1,143 @@
+body {
+  margin: 0px;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 65px;
+  font-weight: 900;
+  margin: 0;
+  color: white;
+  background-color: black;
+  display: inline;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: #E7E7E7;
+  background-color: teal;
+  margin: 0;
+  padding: 10px;
+}
 
 img {
-  max-width: 25%;
-  margin: 20px;
-  max-height: 200px;
+  max-height: 100%;
+}
+
+.wordmark {
+  background-color: black;
+  padding: 20px;
+}
+
+.buslogo {
+  max-height: 90px;
+  display: inline;
+  background-color: black;
+  margin: -22px -4px -22px 0px;
+}
+
+.imageCrop {
+  clip: rect(200px 200px 200px 200px);
+  overflow: hidden;
+  width: 250px;
+  height: 250px;
+  margin: 15px;
+  border: 1px solid orange;
+  background-color: white;
+  cursor: pointer;
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .myChartDiv {
-  width: 400px;
-  height: 400px;
+  display: flex;
+  justify-content: center;
+  height: 100px;
+  margin-bottom: 300px;
 }
 
 button {
-  background-color: red;
+  background-color: #DE5126;
   width: 180px;
   height: 60px;
   color: white;
   border: none;
-  font-family: sans-serif;
+  font-weight: 300;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+section {
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.pic-container {
+  background-color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.bodycopy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 20px auto;
+  max-width: 1000px;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.heading {
+  display: block;
+  text-align: center;
+}
+
+.buttons {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+table {
+  margin: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 1px solid gray;
+}
+
+tr:nth-child(1) {
+  background-color: gray;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 1px;
+}
+
+th {
+  padding: 8px 15px;
+  width: 140px;
+
+}
+
+th:nth-child(1) {
+  min-width: 230px;
+
 }
