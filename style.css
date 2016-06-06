@@ -138,6 +138,6 @@ th {
 }
 
 th:nth-child(1) {
-  min-width: 330px;
+  min-width: 230px;
 
 }

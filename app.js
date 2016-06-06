@@ -184,7 +184,7 @@ function renderChartClicks(){
     }
   });
 }
-
+/*
 function renderChartViews(){
   var chartViews = document.getElementById('myChartViews');
   var data = {
@@ -259,7 +259,7 @@ function renderChartPercentage(){
     }
   });
 }
-
+*/
 function resetCharts(event){
   var chartViews = document.getElementById('myChartViews');
   var chartClicks = document.getElementById('myChartClicks');
@@ -272,9 +272,9 @@ function resetCharts(event){
 
 function renderCharts(event){
   parsedProductItems = JSON.parse(localStorage.getItem('productData'));
-  renderChartViews();
+  // renderChartViews();
   renderChartClicks();
-  renderChartPercentage();
+  // renderChartPercentage();
 }
 
 function playAgain (){
