@@ -16,9 +16,13 @@ var maxClicks = 25;
 var parsedProductItems = [];
 var picNames = ['bag', 'banana', 'bathroom', 'boots', 'bubblegum', 'chair', 'cthulhu', 'dog-duck', 'dragon', 'pen', 'scissors', 'shark', 'sweep', 'tauntaun', 'unicorn', 'usb', 'water-can', 'wine-glass'];
 var parsedProductItems = JSON.parse(localStorage.getItem('productData'));
+var clickMeter = document.getElementById('clickMeter');
 
 if (JSON.parse(localStorage.getItem('productData')) === null) {
   var parsedProductItems = [];
+}
+function clickMeterReadout(){
+  clickMeter.innerHTML = 'You have ' + (25 - allClicks) + ' out of ' + '25 clicks remaining.';
 }
 
 function Product(name) {
@@ -130,6 +134,8 @@ function handlePicContainerClick (event){
     resetButton.style.display = 'inline-block';
     backEndResults.style.display = 'inline-block';
   }
+
+  clickMeterReadout();
 
   clickPercentageData();
 
@@ -268,6 +274,7 @@ function resetCharts(event){
   resetButton.style.display = 'none';
   backEndResults.style.display = 'none';
   allClicks = 0;
+  clickMeterReadout();
 }
 
 function renderCharts(event){

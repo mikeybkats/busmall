@@ -119,7 +119,8 @@ table {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  border: 1px solid gray;
+  border: dashed gray;
+  border-width: 5px;
 }
 
 tr:nth-child(1) {
