@@ -46,7 +46,7 @@ function productAllClicks (){
     }
   }
   return productAllClicks;
-};
+}
 
 function productAllViews (){
   parsedProductItems = JSON.parse(localStorage.getItem('productData'));
@@ -59,7 +59,7 @@ function productAllViews (){
     }
   }
   return productAllViews;
-};
+}
 
 function percentageOfClicks(clicks, views){
   var percentage = clicks / views;
@@ -149,7 +149,7 @@ function viewProductsOnBackEnd(event){
   var allProductsStringged = JSON.stringify(allProducts);
   localStorage.setItem('productData', allProductsStringged);
 
-  window.open('index-back.html');
+  window.open('index-back.html', "_self");
 }
 
 function renderChartClicks(){
@@ -190,82 +190,7 @@ function renderChartClicks(){
     }
   });
 }
-/*
-function renderChartViews(){
-  var chartViews = document.getElementById('myChartViews');
-  var data = {
-    labels: [],
-    datasets: [
-      {
-        label: 'the most viewed products',
-        data: [],
-        backgroundColor: '#DE5126'
-      }
-    ]
-  };
-  if (allClicks < maxClicks){
-    alert('you have to choose another 25 products for busmall before you can see your results');
-  }
-  if (allClicks >= maxClicks){
-    for (var i = 0; i < picNames.length; i++){
-      data.labels.push(picNames[i]);
-      data.datasets[0].data.push(parsedProductItems[i].views);
-      console.log(parsedProductItems[i].views);
-    }
-  }
 
-  var myChartViews = new Chart(chartViews, {
-    type: 'bar',
-    data: data,
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
-    }
-  });
-}
-
-function renderChartPercentage(){
-  var chartPercentage = document.getElementById('myChartPercentage');
-  var data = {
-    labels: [],
-    datasets: [
-      {
-        label: 'percentage of clicks per product',
-        data: [],
-        backgroundColor: '#DE5126'
-      }
-    ]
-  };
-  if (allClicks < maxClicks){
-    alert('you have to choose another 25 products for busmall before you can see your results');
-  }
-  var chartData = clickPercentageData();
-  if (allClicks >= maxClicks){
-    for (var i = 0; i < picNames.length; i++){
-      data.labels.push(picNames[i]);
-      data.datasets[0].data.push(chartData[i]);
-    }
-  }
-  var myChartPercentage = new Chart(chartPercentage, {
-    type: 'bar',
-    data: data,
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
-    }
-  });
-}
-*/
 function resetCharts(event){
   var chartViews = document.getElementById('myChartViews');
   var chartClicks = document.getElementById('myChartClicks');
